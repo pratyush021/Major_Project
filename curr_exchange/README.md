@@ -71,4 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ==========================================================
 1. After updating package.json, use npm install --legacy-peer-deps to install without any errors and warnings. 
+2. Chai is a assertion library that allows us to check for things inside our test. 
 
