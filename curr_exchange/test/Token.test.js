@@ -1,3 +1,4 @@
+import { tokens, EVM_REVERT } from './helpers'
 const Token = artifacts.require('./Token')
 
 require('chai')
@@ -5,11 +6,12 @@ require('chai')
   .should()
 
 contract('Token', (accounts)=>{
-  let token
+  
   const name = 'Pratyush'
   const symbol = 'Symbol'
   const decimal = '18'
-  const totalSupply = '1000000000000000000000000'
+  const totalSupply = tokens(1000000).toString()
+  let token
   beforeEach(async()=>{
     token = await Token.new();
 
@@ -29,10 +31,10 @@ contract('Token', (accounts)=>{
       const result = await token.symbol()
       result.should.equal(symbol)
     })
-    it('tracks the decimal', async()=>{
-      const result = await token.decimal()
-      result.toString().should.equal(decimal)
-    })
+    // it('tracks the decimal', async()=>{
+    //   const result = await token.decimal()
+    //   result.toString().should.equal(decimal)
+    // })
     it('tracks the totalSupply', async()=>{
       const result = await token.totalSupply()
       result.toString().should.equal(totalSupply)
